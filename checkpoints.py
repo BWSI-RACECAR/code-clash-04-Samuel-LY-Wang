@@ -32,7 +32,7 @@ class Solution:
     def longestdistance(self, checkpoints):
       maxdist=0
       for i in range(len(checkpoints)-1):
-        maxdist=max(maxdist, checkpoints[i+1]-checkpoints[i])
+        maxdist=max(maxdist, abs(checkpoints[i+1]-checkpoints[i]))
       return maxdist
 
 def main():
