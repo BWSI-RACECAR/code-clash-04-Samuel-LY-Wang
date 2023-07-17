@@ -28,12 +28,24 @@ Input: [10, 8, 4, 1] ; Output: 4
 Input: [5, 0, 3, 6] ; Output: 3
 """
 
+def selectionSort(array, size):
+    
+    for ind in range(size):
+        min_index = ind
+ 
+        for j in range(ind + 1, size):
+            # select the minimum element in every iteration
+            if array[j] < array[min_index]:
+                min_index = j
+         # swapping the elements to sort the array
+        (array[ind], array[min_index]) = (array[min_index], array[ind])
+
 class Solution:    
     def longestdistance(self, checkpoints):
+      selectionSort(checkpoints, len(checkpoints))
       maxdist=0
-      for i in range(len(checkpoints)):
-        for j in range(len(checkpoints)):
-          maxdist=max(maxdist, checkpoints[i]-checkpoints[j])
+      for i in range(len(checkpoints)-1):
+        maxdist=max(maxdist, checkpoints[i+1]-checkpoints[i])
       return maxdist
 
 def main():
